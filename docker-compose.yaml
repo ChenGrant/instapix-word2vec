@@ -1,0 +1,9 @@
+version: "24.0.2"
+services:
+  user:
+    build: .
+    container_name: instapix-word2vec
+    environment:
+      - ENV=prod
+    ports:
+      - 50054:50054

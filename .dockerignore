@@ -1,0 +1,4 @@
+.word2vec_venv
+__pycache__
+.git
+.gitignore
