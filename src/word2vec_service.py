@@ -40,6 +40,8 @@ class Word2Vec(word2vec_pb2_grpc.Word2VecServiceServicer):
         print("Similarity request received")
         embeddings1 = np.array([element.embedding for element in request.embeddings1])
         embeddings2 = np.array([element.embedding for element in request.embeddings2])
+        if len(embeddings1) == 0 or len(embeddings2) == 0:
+            return word2vec_pb2.SimilarityResponse(similarity=0)
         avg_embedding1 = np.mean(embeddings1, axis=0)
         avg_embedding2 = np.mean(embeddings2, axis=0)
         return word2vec_pb2.SimilarityResponse(
